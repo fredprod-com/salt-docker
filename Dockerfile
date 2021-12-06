@@ -1,4 +1,4 @@
-FROM        ubuntu:18.04
+FROM        ubuntu:20.04
 MAINTAINER  Frederic Perrouin "frederic@fredprod.com"
 ENV REFRESHED_AT 2021-12-06
 
@@ -9,9 +9,9 @@ ENV DEBCONF_NONINTERACTIVE_SEEN true
 RUN apt-get update && \
 	apt-get install -y wget software-properties-common sudo
 
-# Add Salt Ubuntu 18.04 repository
-RUN echo deb http://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest bionic  main | tee /etc/apt/sources.list.d/saltstack.list 
-RUN wget -qO - https://repo.saltstack.com/py3/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
+# Add Salt Ubuntu 20.04 repository
+RUN echo deb http://repo.saltstack.com/py3/ubuntu/20.04/amd64/latest focal  main | tee /etc/apt/sources.list.d/saltstack.list 
+RUN wget -qO - https://repo.saltstack.com/py3/ubuntu/20.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
 
 # Install salt master/minion
 RUN apt-get update && \
